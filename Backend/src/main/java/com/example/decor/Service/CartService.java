@@ -1,9 +1,9 @@
-package com.example.trek.Service;
+package com.example.decor.Service;
 
-import com.example.trek.Entity.Product;
-import com.example.trek.Entity.Cart;
-import com.example.trek.Entity.Users;
-import com.example.trek.Repository.CartRepository;
+import com.example.decor.Entity.Product;
+import com.example.decor.Entity.Cart;
+import com.example.decor.Entity.Users;
+import com.example.decor.Repository.CartRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

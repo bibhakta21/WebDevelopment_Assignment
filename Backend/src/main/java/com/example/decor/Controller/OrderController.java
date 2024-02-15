@@ -1,6 +1,6 @@
-package com.example.trek.Controller;
+package com.example.decor.Controller;
 
-import com.example.trek.Service.OrderService;
+import com.example.decor.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
-package com.example.trek.Repository;
+package com.example.decor.Repository;
 
-import com.example.trek.Entity.Product;
+import com.example.decor.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

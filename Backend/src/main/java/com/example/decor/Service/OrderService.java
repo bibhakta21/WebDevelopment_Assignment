@@ -1,11 +1,11 @@
-package com.example.trek.Service;
+package com.example.decor.Service;
 
-import com.example.trek.Entity.Product;
-import com.example.trek.Entity.Order;
-import com.example.trek.Entity.Users;
-import com.example.trek.Repository.ProductRepository;
-import com.example.trek.Repository.OrderRepository;
-import com.example.trek.Repository.UserRepository;
+import com.example.decor.Entity.Product;
+import com.example.decor.Entity.Order;
+import com.example.decor.Entity.Users;
+import com.example.decor.Repository.ProductRepository;
+import com.example.decor.Repository.OrderRepository;
+import com.example.decor.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

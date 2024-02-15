@@ -1,4 +1,4 @@
-package com.example.trek.util;
+package com.example.decor.util;
 
 import org.springframework.stereotype.Component;
 

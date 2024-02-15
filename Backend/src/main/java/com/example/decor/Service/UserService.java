@@ -1,7 +1,7 @@
-package com.example.trek.Service;
+package com.example.decor.Service;
 
-import com.example.trek.Entity.Users;
-import com.example.trek.Repository.UserRepository;
+import com.example.decor.Entity.Users;
+import com.example.decor.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 //forgot pass

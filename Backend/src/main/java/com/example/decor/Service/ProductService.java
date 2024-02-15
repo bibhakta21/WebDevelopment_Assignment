@@ -1,9 +1,9 @@
-package com.example.trek.Service;
+package com.example.decor.Service;
 
-import com.example.trek.Entity.Product;
-import com.example.trek.Repository.ProductRepository;
-import com.example.trek.Repository.CartRepository;
-import com.example.trek.Repository.OrderRepository;
+import com.example.decor.Entity.Product;
+import com.example.decor.Repository.ProductRepository;
+import com.example.decor.Repository.CartRepository;
+import com.example.decor.Repository.OrderRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import com.example.trek.util.ImagetoBase64;
+import com.example.decor.util.ImagetoBase64;
 
 @Service
 @Transactional
@@ -35,7 +35,7 @@ public class ProductService {
     }
 
 
-    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/trek-image/product-image").toString();
+    private final String UPLOAD_DIRECTORY = new StringBuilder().append(System.getProperty("user.dir")).append("/decor-image/product-image").toString();
 
     public synchronized Product createProduct(Product newProduct) {
 

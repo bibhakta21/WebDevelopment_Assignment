@@ -1,7 +1,7 @@
-package com.example.trek.Controller;
+package com.example.decor.Controller;
 
-import com.example.trek.Entity.Product;
-import com.example.trek.Service.ProductService;
+import com.example.decor.Entity.Product;
+import com.example.decor.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,7 +73,7 @@ public class ProductController {
 
 
     private String saveImage(MultipartFile image) throws IOException {
-        String uploadDirectory = "C:/Users/Bibhakta lamsal/Desktop/Web final project/Backend/src/main/java/com/example/trek/Productimg";
+        String uploadDirectory = "C:/Users/Bibhakta lamsal/Desktop/Web final project/Backend/src/main/java/com/example/decor/Productimg";
 
         // Append timestamp to the original filename
         String fileName = System.currentTimeMillis() + "_" + StringUtils.cleanPath(Objects.requireNonNull(image.getOriginalFilename()));

@@ -1,11 +1,11 @@
-package com.example.trek.Controller;
+package com.example.decor.Controller;
 
-import com.example.trek.Entity.Product;
-import com.example.trek.Entity.Cart;
-import com.example.trek.Entity.Users;
-import com.example.trek.Service.ProductService;
-import com.example.trek.Service.CartService;
-import com.example.trek.Service.UserService;
+import com.example.decor.Entity.Product;
+import com.example.decor.Entity.Cart;
+import com.example.decor.Entity.Users;
+import com.example.decor.Service.ProductService;
+import com.example.decor.Service.CartService;
+import com.example.decor.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

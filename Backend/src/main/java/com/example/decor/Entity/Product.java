@@ -1,4 +1,4 @@
-package com.example.trek.Entity;
+package com.example.decor.Entity;
 
 import jakarta.persistence.*;
 
