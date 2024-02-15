@@ -39,7 +39,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-   
+
 
 
     private final UserRepository userRepository;
@@ -48,11 +48,11 @@ public class UserService {
 //
 
     @Autowired
-    // JavaMailSender javaMailSender 
+    // JavaMailSender javaMailSender
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
 
-    //forgot
+        //forgot
 //        this.javaMailSender = javaMailSender;
     }
 
@@ -142,7 +142,7 @@ public class UserService {
                 case "roles":
                     user.setRoles(Users.Roles.valueOf((String) value));
                     break;
-                    
+
 
                 default:
                     throw new IllegalArgumentException("Invalid field for update: " + field);
@@ -176,7 +176,7 @@ public class UserService {
 //        sendResetTokenByEmail(user.getEmail(), resetToken);
 //    }
 //    private String generateUniqueResetToken() {
-        // Generate a random token using SecureRandom
+    // Generate a random token using SecureRandom
 //        SecureRandom secureRandom = new SecureRandom();
 //        byte[] bytes = new byte[20];
 //        secureRandom.nextBytes(bytes);
@@ -186,8 +186,8 @@ public class UserService {
 //
 //        //return resetToken;
 //   // }
-    
-//   private void sendResetTokenByEmail(String email, String resetToken) {
+
+    //   private void sendResetTokenByEmail(String email, String resetToken) {
 //        Users user = userRepository.findByEmail(email)
 //                .orElseThrow(() -> new IllegalArgumentException("User not found"));
 //
@@ -211,22 +211,48 @@ public class UserService {
 //    user.setResetToken(null);
 //    userRepository.save(user);
 //}
-public List<Users> getAllUsersss() {
-    return userRepository.findAll();
-}
+    public List<Users> getAllUsersss() {
+        return userRepository.findAll();
+    }
 
     public Users findUserByEmailAndUsername(String email, String username) {
         return userRepository.findByUsernameOrEmail(username, email)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
-    public Users updateUserPassword(Long userId, String newPassword) {
-        Users user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+    // In UserService.java
 
-        user.setPassword(newPassword);
-        return userRepository.save(user);
+    public boolean validateSecurityCode(String email, String securityCode) {
+        // Find the user by email
+        Optional<Users> optionalUser = userRepository.findByEmail(email);
+
+        if (optionalUser.isPresent()) {
+            Users user = optionalUser.get();
+            // Get the stored security code for the user
+            String storedSecurityCode = user.getSecurityCode();
+            // Compare the provided security code with the stored one
+            return securityCode.equals(storedSecurityCode);
+        } else {
+            throw new IllegalArgumentException("User not found");
+        }
     }
+
+    public Users updatePasswordWithSecurityCode(String email, String newPassword) {
+        // Find the user by email
+        Optional<Users> optionalUser = userRepository.findByEmail(email);
+
+        if (optionalUser.isPresent()) {
+            Users user = optionalUser.get();
+            // Update the password
+            user.setPassword(newPassword);
+            // Clear the security code after password update (optional)
+            return userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("User not found");
+        }
+    }
+
+
 
 
 
