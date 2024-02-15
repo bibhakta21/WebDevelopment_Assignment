@@ -179,26 +179,34 @@ public class UserController {
 //        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 //    }
 //}
-@PutMapping("/forgot-password")
-public ResponseEntity<Object> forgotPassword(@RequestBody Map<String, String> userDetails) {
-    try {
-        String email = userDetails.get("email");
-        String username = userDetails.get("username");
-        String newPassword = userDetails.get("newPassword");
+// In UserController.java
 
-        // user khojne by email and username
-        Users user = userService.findUserByEmailAndUsername(email, username);
+    @PutMapping("/forgot-password")
+    public ResponseEntity<Object> forgotPassword(@RequestBody Map<String, String> userDetails) {
+        try {
+            String email = userDetails.get("email");
+            String newPassword = userDetails.get("newPassword");
+            String securityCode = userDetails.get("securityCode");
 
-        // password update garna
-        Users updatedUser = userService.updateUserPassword(user.getId(), newPassword);
+            // Validate the security code
+            boolean isValidCode = userService.validateSecurityCode(email, securityCode);
 
-        return new ResponseEntity<>("Password updated successfully", HttpStatus.OK);
-    } catch (IllegalArgumentException e) {
-        Map<String, String> response = new HashMap<>();
-        response.put("message", e.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+            if (!isValidCode) {
+                throw new IllegalArgumentException("Invalid security code");
+            }
+
+            // If the security code is valid, update the password
+            userService.updatePasswordWithSecurityCode(email, newPassword);
+
+            return new ResponseEntity<>("Password updated successfully", HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            Map<String, String> response = new HashMap<>();
+            response.put("message", e.getMessage());
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
     }
-}
+
+
 
 
 
