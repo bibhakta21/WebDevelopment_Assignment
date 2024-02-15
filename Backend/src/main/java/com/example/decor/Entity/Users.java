@@ -37,6 +37,8 @@ public class Users {
         admin, users
     }
 
+    private String securityCode; // Add securityCode field
+
 
 
     //forgot pass
@@ -124,6 +126,15 @@ public class Users {
 
     public void setUsernameOrEmail(String usernameOrEmail) {
         this.usernameOrEmail = usernameOrEmail;
+    }
+
+    // Add getters and setters for securityCode field
+    public String getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
     }
 }
 
