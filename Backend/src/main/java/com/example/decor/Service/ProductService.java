@@ -91,7 +91,7 @@ public class ProductService {
         Product existingProduct = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("product with the given ID does not exist"));
 
-        // Then delete the book
+        // Then delete the
         cartRepository.deleteByProduct(existingProduct);
         orderRepository.deleteByProduct(existingProduct);
         productRepository.delete(existingProduct);
@@ -110,7 +110,7 @@ public class ProductService {
             throw new IllegalArgumentException("Fields CANNOT BE Empty.");
         }
 
-        // Update the fields of the existing book
+        // Update the fields of the existing
         existingProduct.setTitle(updatedProduct.getTitle());
 
         existingProduct.setPrice(updatedProduct.getPrice());

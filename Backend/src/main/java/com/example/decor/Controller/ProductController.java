@@ -19,7 +19,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 @RestController
-@RequestMapping("api/v2/books")
+@RequestMapping("api/v2/products")
 @CrossOrigin(origins = {"http://localhost:5173","http://localhost:5174"})
 public class ProductController {
     private final ProductService productService;
@@ -100,7 +100,7 @@ public class ProductController {
     @GetMapping("/{productId}")
     public ResponseEntity<Object> getProductById(@PathVariable long productId) {
         try {
-            // Your logic to get the book by ID
+            // Your logic to get the  by ID
             Product product = productService.getProductById(productId).orElseThrow(() -> new RuntimeException("Product with id not found"));
 
             return new ResponseEntity<>(product, HttpStatus.OK);
@@ -130,7 +130,7 @@ public class ProductController {
     public ResponseEntity<Object> putProduct(@PathVariable Long productId,@RequestBody Product updatedProduct){
         try {
             Product changedProduct=productService.putProduct(productId,updatedProduct);
-            //since optional<book> is returned by repository we need to catch error
+            //since optional is returned by repository we need to catch error
             return new ResponseEntity<>(changedProduct,HttpStatus.OK);
         }catch (IllegalArgumentException e){
             Map<String,String> errorResponse=new HashMap<>();
