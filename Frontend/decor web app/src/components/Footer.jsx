@@ -56,6 +56,15 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        <div className="w-full flex flex-col gap-3 justify-center items-start px-2">
+          <h2 className="text-[22px] mb-4 text-white">Follow Us</h2>
+          <div className="w-full flex flex-row gap-3 items-center px-3 mb-12">
+          <Link to="https://www.instagram.com/decornepal_/" target="_blank"> <FaFacebook size={30} color="white" /> </Link>
+          <Link to="https://www.instagram.com/decornepal_/" target="_blank"> <FaInstagram size={30} color="white" /> </Link>
+           <Link to="https://www.instagram.com/decornepal_/" target="_blank"> <FaTwitter size={30} color="white" /> </Link>
+          <Link to="https://www.instagram.com/decornepal_/" target="_blank"><FaYoutube size={30} color="white" /> </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
