@@ -61,6 +61,21 @@ export const ProductProvider = ({ children }) => {
       setError(true); // Set error message
     }
   };
+
+  
+  const getProductById = async (productId) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/v2/products/${productId}`
+      );
+      setSingleProduct(response.data);
+      slideSidebar();
+      setError(null); // Reset error on successful fetch
+    } catch (error) {
+      console.error("Error fetching single products:", error);
+      setError(true); // Set error message
+    }
+  };
     
     return (
         <ProductContext.Provider
