@@ -2,22 +2,25 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 const ProductContext = createContext();
-const [products, setProducts] = useState([]);
-const url = "http://localhost:8080/api/v2/products/getAll";
+
 export const ProductProvider = ({ children }) => {
+  const [products, setProducts] = useState([]);
+  const [singleProduct, setSingleProduct] = useState([]);
+  const [error, setError] = useState(false); // Add error state
+  const [errMsg, setErrMsg] = useState("");
+  const url = "http://localhost:8080/api/v2/products/getAll";
 
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(url);
+      setProducts(response.data);
+      setError(null); // Reset error on successful fetch
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setError("Error fetching productss."); // Set error message
+    }
+  };
 
-    const fetchProducts = async () => {
-        try {
-          const response = await axios.get(url);
-          setProducts(response.data);
-          setError(null); // Reset error on successful fetch
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setError("Error fetching productss."); // Set error message
-        }
-      };
-      
   useEffect(() => {
     fetchProducts();
   }, []); // Empty dependency array means this effect runs only once on mount
@@ -62,7 +65,7 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
-  
+
   const getProductById = async (productId) => {
     try {
       const response = await axios.get(
@@ -76,26 +79,27 @@ export const ProductProvider = ({ children }) => {
       setError(true); // Set error message
     }
   };
-    
-    return (
-        <ProductContext.Provider
-          value={{
-            products,
-            fetchProducts,
-            addProduct,
-            deleteProduct,
-            getProductById,
-            singleProduct,
-            error, // Add error to the context
-          }}
-        >
-          {children}
-        </ProductContext.Provider>
-      );
-    };
-    export const useProductContext = () => {
-      return useContext(ProductContext);
-    };
-    
-    
-    
+
+
+
+  return (
+    <ProductContext.Provider
+      value={{
+        products,
+        fetchProducts,
+        addProduct,
+        deleteProduct,
+        getProductById,
+        singleProduct,
+        error, // Add error to the context
+      }}
+    >
+      {children}
+    </ProductContext.Provider>
+  );
+};
+export const useProductContext = () => {
+  return useContext(ProductContext);
+};
+
+
