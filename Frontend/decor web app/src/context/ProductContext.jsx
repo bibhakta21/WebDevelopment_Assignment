@@ -17,6 +17,10 @@ export const ProductProvider = ({ children }) => {
           setError("Error fetching productss."); // Set error message
         }
       };
+      
+  useEffect(() => {
+    fetchProducts();
+  }, []); // Empty dependency array means this effect runs only once on mount
     
     return (
         <ProductContext.Provider
