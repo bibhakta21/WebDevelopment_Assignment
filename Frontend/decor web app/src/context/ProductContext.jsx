@@ -21,6 +21,29 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     fetchProducts();
   }, []); // Empty dependency array means this effect runs only once on mount
+
+  const addProduct = async (productData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/v2/products/add",
+        productData
+      );
+
+      // Assuming the response contains the newly added products data
+      const newProduct = response.data;
+
+      // Update the state immediately after adding a new products
+      setProducts((prevProducts) => [newProduct, ...prevProducts]);
+
+      // Fetch all data again after adding a new products
+      // (this is optional depending on your requirements)
+      fetchProducts();
+      setError(null); // Reset error on successful add
+    } catch (error) {
+      console.error("Error adding products:", error);
+      setError(true); // Set error message
+    }
+  };
     
     return (
         <ProductContext.Provider
