@@ -44,6 +44,23 @@ export const ProductProvider = ({ children }) => {
       setError(true); // Set error message
     }
   };
+
+  const deleteProduct = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/v2/products/delete/${productId}`);
+
+      // Update the state immediately after deleting a products
+      setProducts((prevProducts) => prevProducts.filter((product) => product.id !== productId));
+
+      // Fetch all data again after deleting a products
+      // (this is optional depending on your requirements)
+      fetchProducts();
+      setError(null); // Reset error on successful delete
+    } catch (error) {
+      console.error("Error deleting products:", error);
+      setError(true); // Set error message
+    }
+  };
     
     return (
         <ProductContext.Provider
