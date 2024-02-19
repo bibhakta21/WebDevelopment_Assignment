@@ -32,6 +32,9 @@ export const useSignin = () => {
         throw new Error("No such account");
       }
     } catch (error) {
+      // Handle network errors or other exceptions
+      console.error(error.response?.data || error.message);
+      throw error;
     }
   };
 
