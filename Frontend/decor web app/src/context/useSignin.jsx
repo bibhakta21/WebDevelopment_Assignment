@@ -22,6 +22,7 @@ export const useSignin = () => {
           localStorage.setItem("user", JSON.stringify(jsonData));
           dispatch({ type: "LOGIN", payload: jsonData });
           if (jsonData.roles !== "admin") {
+            navigate("/");
           } else {
             navigate("/dashboard");
           }
