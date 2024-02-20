@@ -5,7 +5,9 @@ import { useSignin } from "../context/useSignin";
 
 const Login = () => {
     const { signin } = useSignin();
- 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
   
   
 
