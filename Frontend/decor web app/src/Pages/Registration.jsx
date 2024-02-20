@@ -19,6 +19,17 @@ const Register = () => {
       return;
     }
 
+    if (username.length <= 5 || !/\d/.test(username)) {
+      setErrorMessage("Username should be more than 5 characters and have at least one number.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Please use a valid Gmail address.");
+      return;
+    }
+
    
 
     try {
