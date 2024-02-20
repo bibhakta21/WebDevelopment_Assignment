@@ -25,6 +25,9 @@ const Login = () => {
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm">
           <h2 className="text-2xl font-semibold text-center mb-4">Login to your account</h2>
           <p className="text-gray-600 text-center mb-6">Enter your details to login.</p>
+          {errorMessage && (
+            <div className="mb-4 p-2 bg-red-200 text-red-800 rounded">{errorMessage}</div>
+          )}
           <form onSubmit={handleLogin}>
             <div className="mb-4">
               <label htmlFor="email" className="block text-gray-700 text-sm font-semibold mb-2">
