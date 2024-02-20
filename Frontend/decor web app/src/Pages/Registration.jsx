@@ -30,7 +30,10 @@ const Register = () => {
       return;
     }
 
-   
+    if (password.length <= 6) {
+      setErrorMessage("Password should be more than 6 characters.");
+      return;
+    }
 
     try {
       const response = await axios.post("http://localhost:8080/api/v2/users/register", {
