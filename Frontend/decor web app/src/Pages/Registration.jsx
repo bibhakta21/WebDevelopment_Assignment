@@ -14,7 +14,12 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    
+    if (!username || !email || !password || !securityCode) {
+      setErrorMessage("Please fill in all fields.");
+      return;
+    }
+
+   
 
     try {
       const response = await axios.post("http://localhost:8080/api/v2/users/register", {
