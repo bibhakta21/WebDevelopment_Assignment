@@ -3,14 +3,43 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
-    const navigate = useNavigate();
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [securityCode, setSecurityCode] = useState(""); // New state for security code
-    const [successMessage, setSuccessMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
- 
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [securityCode, setSecurityCode] = useState(""); // New state for security code
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    
+
+    try {
+      const response = await axios.post("http://localhost:8080/api/v2/users/register", {
+        username,
+        email,
+        password,
+        securityCode, // Include security code in the request body
+      });
+
+      if (response.status === 201) {
+        setSuccessMessage("Sign Up Successful. Please login!");
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setSecurityCode(""); // Clear security code after successful registration
+
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      }
+    } catch (error) {
+      const errorMessage = error?.response?.data?.message || "An error occurred.";
+      setErrorMessage(errorMessage);
+    }
+  };
 
   return (
     <>
@@ -18,12 +47,17 @@ const Register = () => {
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full" style={{ maxWidth: "550px" }}>
           <h2 className="text-2xl font-semibold text-center mb-4">Create a new account</h2>
           <p className="text-gray-600 text-center mb-6">Enter your details to register.</p>
-     
+          {successMessage && (
+            <div className="mt-4 mb-4 p-2 bg-green-200 text-green-800 rounded">
+              {successMessage}
             </div>
-       
+          )}
+          {errorMessage && (
+            <div className="mt-4 mb-4 p-2 bg-red-200 text-red-800 rounded">
+              {errorMessage}
             </div>
-        
-          <form>
+          )}
+          <form onSubmit={handleRegister}>
             <div className="flex flex-row gap-3">
               <div className="mb-4">
                 <label htmlFor="username" className="block text-gray-700 text-sm font-semibold mb-2">
@@ -35,7 +69,8 @@ const Register = () => {
                   className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                   required
                   placeholder="Bibhakta45"
-                 
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -48,7 +83,8 @@ const Register = () => {
                   className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                   required
                   placeholder="bibhakta8@gmail.com"
-                
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -63,7 +99,8 @@ const Register = () => {
                   className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                   required
                   placeholder="••••••••"
-                 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="mb-6">
