@@ -9,7 +9,16 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
   
-  
+    const handleLogin = async (e) => {
+        e.preventDefault();
+    
+        try {
+          // Call the signin function from the useSignin hook
+          await signin(email, password);
+        } catch (error) {
+          setErrorMessage(error.message);
+        }
+      };
 
   return (
     <>
