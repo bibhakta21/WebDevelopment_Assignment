@@ -6,7 +6,7 @@ import img4 from "../assets/icon-4.png";
 import img5 from "../assets/icon-5.png";
 import img6 from "../assets/icon-6.png";
 import img7 from "../assets/icon-7.png";
-
+import "../css/item.css"
 const ItemIcons = () => {
   return (
     <section className="banner__1">
