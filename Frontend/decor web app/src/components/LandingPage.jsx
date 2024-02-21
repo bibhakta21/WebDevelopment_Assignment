@@ -66,7 +66,7 @@ const LandingPage = () => {
             </p>
             <div data-aos="fade-up" data-aos-offset="0">
             
-            <Link to={""}>
+            <Link to={`/products/${products.productId}`}>
                 <button
                   style={{ color:"#4460e6" }}
                   className="bg-white py-2 px-4 rounded-full"
