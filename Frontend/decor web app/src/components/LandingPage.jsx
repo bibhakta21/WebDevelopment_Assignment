@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
+import { Link } from "react-router-dom";
 const LandingPage = () => {
-    const { products, fetchProducts } = useProductContext();
-    const [divanSofaImage, setDivanSofaImage] = useState(null);
+  const { products, fetchProducts } = useProductContext();
+  const [divanSofaImage, setDivanSofaImage] = useState(null);
 
+  useEffect(() => {
+    // Fetch product when the component mounts
+    fetchProducts();
+  }, [fetchProducts]);
+
+  useEffect(() => {
+    // Find the product with title "Divan Sofa" and set the image
+    const divanSofaProduct = products.find((product) => product.title === "Divan Sofa");
+    if (divanSofaProduct) {
+      setDivanSofaImage(divanSofaProduct.base64Image);
+    }
+  }, [products]);
 
   return (
     <div className="min-h-[650px] flex justify-center items-center py-12" style={{ backgroundColor: "#2c569a"}}>
@@ -32,14 +44,14 @@ const LandingPage = () => {
           </div>
           {/* second col */}
           <div data-aos="zoom-in" className="h-full flex items-center">
-            
+            {divanSofaImage && (
               
               <img
-                src={""}
+                src={`data:image/png;base64, ${divanSofaImage}`}
                 alt="Divan Sofa"
                 className="scale-125 w-[250px] md:w-[340px] mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,.6)] object-cover"
               />
-        
+            )}
           </div>
           {/* third col */}
           <div className="flex flex-col justify-center gap-4 p-6 sm:p-8">
