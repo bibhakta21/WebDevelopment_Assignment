@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useProductContext } from "../context/ProductContext";
 const LandingPage = () => {
+    const { products, fetchProducts } = useProductContext();
+    const [divanSofaImage, setDivanSofaImage] = useState(null);
 
 
   return (
