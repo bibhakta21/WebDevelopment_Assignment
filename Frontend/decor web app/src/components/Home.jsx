@@ -3,6 +3,7 @@ import LandingPage from "./LandingPage";
 import ItemIcons from "./ItemIcons";
 import Services from "./Services";
 import SpecialProduct from "./SpecialProduct";
+import Banner from "./Banner";
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <ItemIcons />
       <Services />
       <SpecialProduct />
+      <Banner/>
     
     </>
   );
