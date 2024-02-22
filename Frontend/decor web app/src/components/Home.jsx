@@ -2,7 +2,7 @@ import React from "react";
 import LandingPage from "./LandingPage";
 import ItemIcons from "./ItemIcons";
 import Services from "./Services";
-
+import SpecialProduct from "./SpecialProduct";
 
 
 const Home = () => {
@@ -11,6 +11,7 @@ const Home = () => {
       <LandingPage />
       <ItemIcons />
       <Services />
+      <SpecialProduct />
     
     </>
   );
