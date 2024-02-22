@@ -13,7 +13,24 @@ const ServiceData = [
     title: "Free Shipping",
     description: "Free Shipping On All Order",
   },
- 
+  {
+    id: 2,
+    icon: <FaCheckCircle className="text-4xl md:text-5xl" style={{color:"red"}}/>,
+    title: "Safe Money ",
+    description: "30 Days Money Back",
+  },
+  {
+    id: 3,
+    icon: <FaWallet className="text-4xl md:text-5xl" style={{color:"red"}}/>,
+    title: "Secure Payment",
+    description: "All Payment Secure",
+  },
+  {
+    id: 4,
+    icon: <FaHeadphonesAlt className="text-4xl md:text-5xl" style={{color:"red"}}/>,
+    title: "Online Supoort 24/7",
+    description: "Technical Support 24/7",
+  },
   
 ];
 
