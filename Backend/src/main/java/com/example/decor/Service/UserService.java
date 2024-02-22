@@ -161,56 +161,7 @@ public class UserService {
     }
 
 
-    //forgot pass
-//    public void generateResetToken(String email) {
-//        Users user = userRepository.findByEmail(email)
-//                .orElseThrow(() -> new IllegalArgumentException("User not found"));
-//
-//        // Generate a unique reset token (you can use UUID.randomUUID().toString())
-//        String resetToken = generateUniqueResetToken();
-//
-//        user.setResetToken(resetToken);
-//        userRepository.save(user);
-//
-//        // Send the reset token to the user's email (you need to implement this part)
-//        sendResetTokenByEmail(user.getEmail(), resetToken);
-//    }
-//    private String generateUniqueResetToken() {
-    // Generate a random token using SecureRandom
-//        SecureRandom secureRandom = new SecureRandom();
-//        byte[] bytes = new byte[20];
-//        secureRandom.nextBytes(bytes);
-//
-//        // Encode the random bytes using Base64
-//       // String resetToken = Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
-//
-//        //return resetToken;
-//   // }
 
-    //   private void sendResetTokenByEmail(String email, String resetToken) {
-//        Users user = userRepository.findByEmail(email)
-//                .orElseThrow(() -> new IllegalArgumentException("User not found"));
-//
-//        SimpleMailMessage mailMessage = new SimpleMailMessage();
-//        mailMessage.setTo(user.getEmail());
-//        mailMessage.setSubject("Password Reset");
-//        mailMessage.setText("To reset your password, click on the following link: "
-//                + "localhost:5173/verify-otp/reset-password?token=" + resetToken);
-//
-//        javaMailSender.send(mailMessage);
-//    }
-//
-//
-//    // In UserService.java
-//public void resetPassword(String resetToken, String newPassword) {
-//    Users user = userRepository.findByResetToken(resetToken)
-//            .orElseThrow(() -> new IllegalArgumentException("Invalid or expired reset token"));
-//
-//    // Set the new password and clear the reset token
-//    user.setPassword(newPassword);
-//    user.setResetToken(null);
-//    userRepository.save(user);
-//}
     public List<Users> getAllUsersss() {
         return userRepository.findAll();
     }
@@ -251,10 +202,5 @@ public class UserService {
             throw new IllegalArgumentException("User not found");
         }
     }
-
-
-
-
-
 }
 

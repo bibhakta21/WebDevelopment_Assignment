@@ -66,6 +66,10 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- For Maven --> <!--just added-->
+
+
+
         <!--        testing ko lagi-->
         <dependency>
             <groupId>com.h2database</groupId>
