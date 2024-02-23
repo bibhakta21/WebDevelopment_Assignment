@@ -88,6 +88,7 @@ const Product = () => {
                 </p>
                 <div className="ml-auto mt-2">
                   <button
+                    onClick={() => addToCart(product.productId, userID)}
                     className="flex items-center justify-center bg-blue-500 text-white rounded-full p-2 focus:outline-none hover:bg-blue-600"
                   >
                     <FaShoppingBag size={20} color="currentColor" />
