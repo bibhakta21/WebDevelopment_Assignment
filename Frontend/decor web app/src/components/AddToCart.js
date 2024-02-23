@@ -23,6 +23,9 @@ export const addToCart = async (productId, userID) => {
       });
     } catch (error) {
       console.error("Error adding to cart:", error);
+      toast.warning("You must login to add product to cart.", {
+        position: "top-center" ,autoClose: 1000,
+      });
       // Handle errors
     }
   };
