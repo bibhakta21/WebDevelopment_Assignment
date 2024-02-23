@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import Login from "./Pages/Login";
 import Register from "./Pages/Registration";
 import Product from "./Pages/Product";
+import Sofa from "./Pages/Sofa";
+import Chair from "./Pages/Chair";
+import Table from "./Pages/Table";
 
 
 
@@ -37,6 +40,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Product />} />
+        <Route path="/sofa" element={<Sofa />} />
+        <Route path="/chair" element={<Chair />} />
+        <Route path="/table" element={<Table />} />
        
       </Routes>
        <Footer />
