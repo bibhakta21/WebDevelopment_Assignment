@@ -10,6 +10,7 @@ import Product from "./Pages/Product";
 import Sofa from "./Pages/Sofa";
 import Chair from "./Pages/Chair";
 import Table from "./Pages/Table";
+import Userprofile from "./Pages/Profile";
 
 
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/sofa" element={<Sofa />} />
         <Route path="/chair" element={<Chair />} />
         <Route path="/table" element={<Table />} />
+        <Route path="/user-profile" element={<Userprofile />} />
        
       </Routes>
        <Footer />
