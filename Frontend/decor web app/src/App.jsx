@@ -12,6 +12,7 @@ import Chair from "./Pages/Chair";
 import Table from "./Pages/Table";
 import Userprofile from "./Pages/Profile";
 import ForgotPass from "./Pages/ForgotPass";
+import ProductDetails from "./Pages/ProductDetails";
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Product />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/sofa" element={<Sofa />} />
         <Route path="/chair" element={<Chair />} />
         <Route path="/table" element={<Table />} />
