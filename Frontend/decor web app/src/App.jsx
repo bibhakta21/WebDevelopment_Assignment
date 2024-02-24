@@ -13,7 +13,8 @@ import Table from "./Pages/Table";
 import Userprofile from "./Pages/Profile";
 import ForgotPass from "./Pages/ForgotPass";
 import ProductDetails from "./Pages/ProductDetails";
-import Orderdetail from "./components/Orderdetail";
+import Userorder from "./Pages/Userorder";
+import Orderdetailuser from "./Pages/Orderdetailuser";
 
 
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/user-profile" element={<Userprofile />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
         <Route path="/userorder" element={<Userorder />} />
+        <Route path="/orderdetailuser" element={<Orderdetailuser />} />
        
       </Routes>
        <Footer />
