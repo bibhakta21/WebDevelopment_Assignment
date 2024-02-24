@@ -11,6 +11,7 @@ import Sofa from "./Pages/Sofa";
 import Chair from "./Pages/Chair";
 import Table from "./Pages/Table";
 import Userprofile from "./Pages/Profile";
+import ForgotPass from "./Pages/ForgotPass";
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/chair" element={<Chair />} />
         <Route path="/table" element={<Table />} />
         <Route path="/user-profile" element={<Userprofile />} />
+        <Route path="/forgotpass" element={<ForgotPass />} />
        
       </Routes>
        <Footer />
