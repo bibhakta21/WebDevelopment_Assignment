@@ -1,0 +1,101 @@
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+  }
+  
+  .section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+  
+  .section__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .banner__1 {
+    background-color: var(--text-light);
+  }
+  
+  .banner__1__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .banner__1__container .icon {
+    display: grid;
+    gap: 0.1rem;
+    text-align: center;
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .banner__1__container img {
+    width: 40px;
+    margin: auto;
+  }
+  
+  @media (width < 900px) {
+    .banner__1__container {
+      gap: 3rem;
+    }
+  
+    .arrivals__grid,
+    .blog__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  
+    .seller__grid,
+    .product__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  
+    .product__image:nth-child(1) {
+      grid-area: unset;
+    }
+  
+    .product__image:nth-child(2) {
+      grid-area: 1/1/2/4;
+    }
+  }
+  
+  @media (width < 600px) {
+    .banner__2__container h2 {
+      font-size: 4rem;
+    }
+  
+    .seller__grid,
+    .product__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product__image:nth-child(2) {
+      grid-area: unset;
+    }
+
+  }
+  

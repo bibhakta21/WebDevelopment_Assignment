@@ -1,0 +1,80 @@
+
+.login-btn {
+    width: 100%;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.2s ease-in; /* Smooth cubic-bezier transition */
+    font-weight: 500;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+/* Common styles for all screen sizes */
+.section__container {
+  max-width: 80%;    
+}
+
+.logo__header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  
+  
+}
+
+.logo__header img {
+  max-width: 150px;
+}
+
+.contact__us {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact__us p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.contact__us i {
+  font-size: 1rem;
+}
+/* Add this to your existing navigation.scss file or create a new one */
+.dropdown-menu {
+display: none;
+position: absolute;
+background-color:#4460e6; /* Set your desired background color */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+z-index: 1;
+padding: 10px;
+width: 90px;
+color: white;
+}
+
+.dropdown-menu li {
+margin-bottom: 5px;
+}
+
+/* Show dropdown on hover */
+li:hover .dropdown-menu {
+display: block;
+}
+
+
+/* Hide section__container when screen is less than 800px */
+@media (max-width: 800px) {
+  .section__container {
+    display: none;
+  }
+}

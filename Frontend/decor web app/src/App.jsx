@@ -16,6 +16,9 @@ import ProductDetails from "./Pages/ProductDetails";
 import Userorder from "./Pages/Userorder";
 import Orderdetailuser from "./Pages/Orderdetailuser";
 
+import Dashboard from "./Pages/Dashboard";
+import DashboardContent from "./components/DashboardMain";
+
 
 
 
@@ -53,6 +56,15 @@ function App() {
         <Route path="/forgotpass" element={<ForgotPass />} />
         <Route path="/userorder" element={<Userorder />} />
         <Route path="/orderdetailuser" element={<Orderdetailuser />} />
+
+
+        {user && user.roles === "admin" ? (
+          <Route path="/dashboard/*" element={<Dashboard />}>
+            <Route index element={<DashboardContent />} />
+          </Route>
+        ) : (
+          <Route path="/dashboard/*" element={<Home />} />
+        )}
        
       </Routes>
        <Footer />
