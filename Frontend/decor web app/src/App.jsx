@@ -26,7 +26,7 @@ import DashboardContent from "./components/DashboardMain";
 import Userdetail from "./components/Userdetail";
 import Addproduct from "./components/Addproduct";
 import ViewProducts from "./components/ViewProducts";
-import Userorder from "./Pages/Userorder";  //
+import Userorder from "./Pages/Userorder";  
 import { useAuthContext } from "./context/useAuthContext";
 
 
@@ -49,8 +49,12 @@ function App() {
       {showNavigation && <Navigation />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        {!user && (
+          <>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </>
+        )}
         <Route path="/products" element={<Product />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/sofa" element={<Sofa />} />

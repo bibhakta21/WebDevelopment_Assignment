@@ -22,7 +22,7 @@ const DashboardHeader = () => {
     <navs className={isNavOpen ? 'navs-open' : ''}>
     <Link to="/"><div className="logo">decor Nepal</div></Link>
     <div className="navs-items" style={{ marginRight: "100px" }}>
-      <a href="/dashboard/add">Add</a> <a href="/dashboard/view">View</a> <a href="/dashboard/users">User</a> <a href="/dashboard/orders">Order</a> 
+      <Link to="/dashboard/add">Add</Link> <Link to="/dashboard/view">View</Link> <Link to="/dashboard/users">User</Link> <Link to="/dashboard/orders">Order</Link> 
       <a href="/login" onClick={handleLogout}>Logout</a>
     </div>
     <div className="burger" onClick={toggleNav}>

@@ -40,7 +40,7 @@ const Footer = () => {
           <h2 className="text-[22px] text-white">Your Info</h2>
           <ul className="flex flex-col justify-center items-start gap-3">
             <li>
-              <Link to="" className="font-semibold text-white">
+              <Link to="/orderdetailuser" className="font-semibold text-white">
                 Your Orders
               </Link>
             </li>
@@ -50,7 +50,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="" className="font-semibold text-white">
+              <Link to="/user-profile" className="font-semibold text-white">
                 Your Profile
               </Link>
             </li>

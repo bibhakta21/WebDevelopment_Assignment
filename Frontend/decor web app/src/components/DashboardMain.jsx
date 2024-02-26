@@ -1,7 +1,7 @@
 import React from "react";
 import Land from "../assets/land.png"
 import "../css/dashboard.css";
-
+import { Link } from "react-router-dom";
 const DashboardContent = () => {
   return (
     <section className="flex flex-wrap items-center -mx-3 font-sans px-4 mx-auto w-full mt-20 lg:max-w-screen-lg sm:max-w-screen-sm md:max-w-screen-md pb-20">
@@ -21,11 +21,11 @@ const DashboardContent = () => {
       </div>
 
       <div className="text-center lg:text-left">
-        <a href="/dashboard/add"
+        <Link to="/dashboard/add"
           className="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-blue-500 rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
         >
           Get Started
-        </a>
+        </Link>
        
       </div>
     </div>

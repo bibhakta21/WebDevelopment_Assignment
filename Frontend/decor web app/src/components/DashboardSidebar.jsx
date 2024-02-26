@@ -3,6 +3,7 @@ import { AiOutlineDashboard, AiOutlinePlus, AiOutlineEye, AiOutlineUser,AiOutlin
 import { useAuthContext } from "../context/useAuthContext";
 import {useLogout} from "../context/useLogout";
 import "../css/dashboard.css";
+import { Link } from "react-router-dom";
 
 const DashboardSidebar = () => {
   const { user } = useAuthContext();
@@ -25,54 +26,54 @@ const DashboardSidebar = () => {
           </div>
         </li>
         <li>
-          <a href="/dashboard" className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
+          <Link to="/dashboard" className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
           <span className="inline-flex justify-center items-center ml-4">
                 <AiOutlineDashboard className="w-5 h-5" />
               </span>
             <span className="ml-2 text-sm tracking-wide truncate">Dashboard</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/dashboard/add"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
+          <Link to="/dashboard/add"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
           <span className="inline-flex justify-center items-center ml-4">
                 <AiOutlinePlus className="w-5 h-5" />
               </span>
             <span className="ml-2 text-sm tracking-wide truncate">Add Product</span>
          
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/dashboard/view"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
+          <Link to="/dashboard/view"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
           <span className="inline-flex justify-center items-center ml-4">
                 <AiOutlineEye className="w-5 h-5" />
               </span>
             <span className="ml-2 text-sm tracking-wide truncate">View Product</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/dashboard/users" className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
+          <Link to="/dashboard/users" className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
           <span className="inline-flex justify-center items-center ml-4">
                 <AiOutlineUser className="w-5 h-5" />
               </span>
             <span className="ml-2 text-sm tracking-wide truncate">Users</span>
             
-          </a>
+          </Link>
         </li>
        
         <li>
-          <a href="/dashboard/orders"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
+          <Link to="/dashboard/orders"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
           <span className="inline-flex justify-center items-center ml-4">
                 <AiOutlineOrderedList className="w-5 h-5" />
               </span>
             <span className="ml-2 text-sm tracking-wide truncate">Orders</span>
             
-          </a>
+          </Link>
         </li>
        
        
 
         <li>
-          <a href="#"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
+          <a href="/"  className="relative flex flex-row items-center h-11 focus:outline-none   text-white-600  border-l-4 border-transparent  dark:hover:border-red-800 pr-6">
           <span className="inline-flex justify-center items-center ml-4">
                 <AiOutlineLogout className="w-5 h-5" />
               </span>

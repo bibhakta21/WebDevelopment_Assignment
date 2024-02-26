@@ -2,7 +2,7 @@ import React from "react";
 import {
   FaCarSide,
   FaHeadphonesAlt,
-  FaWallet,
+  FaCar,
   FaCheckCircle,
 } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ const ServiceData = [
     id: 1,
     icon: <FaCarSide className="text-4xl md:text-5xl" style={{color:"red"}}/>,
     title: "Free Shipping",
-    description: "Free Shipping On All Order",
+    description: "Free Shipping On first 10 Order",
   },
   {
     id: 2,
@@ -21,9 +21,9 @@ const ServiceData = [
   },
   {
     id: 3,
-    icon: <FaWallet className="text-4xl md:text-5xl" style={{color:"red"}}/>,
-    title: "Secure Payment",
-    description: "All Payment Secure",
+    icon: <FaCar className="text-4xl md:text-5xl" style={{color:"red"}}/>,
+    title: "Fast Delivery",
+    description: "cash on delivery",
   },
   {
     id: 4,
