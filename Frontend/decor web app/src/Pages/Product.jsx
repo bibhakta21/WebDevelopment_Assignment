@@ -28,7 +28,7 @@ const Product = () => {
 
   return (
     <>
-      <div className="flex-1 flex  px-2 lg:ml-6 lg:justify-end" style={{ marginTop: "80px" }}>
+      <div className="flex-1 flex  px-2 lg:ml-6 lg:justify-end" style={{ marginTop: "80px"}}>
         <div className="max-w-lg w-full lg:max-w-xs">
          
           <form method="get" action="#" className="relative z-50">

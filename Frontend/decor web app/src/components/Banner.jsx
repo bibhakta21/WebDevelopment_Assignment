@@ -1,7 +1,6 @@
-
-import headphone from "../assets/sofa21.png"; // Adjust the path accordingly
 import React, { useState, useEffect } from "react";
 import { useProductContext } from "../context/ProductContext";
+
 
 
 const Banner = () => {

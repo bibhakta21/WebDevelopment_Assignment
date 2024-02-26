@@ -19,7 +19,7 @@ export const addToCart = async (productId, userID) => {
       console.log(response.data);
 
       toast.success("Product has been added to the Cart", {
-        position: "top-right",
+        position: "top-center",
       });
     } catch (error) {
       console.error("Error adding to cart:", error);

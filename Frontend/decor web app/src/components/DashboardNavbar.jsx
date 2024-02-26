@@ -20,7 +20,7 @@ const DashboardHeader = () => {
 
   return (
     <navs className={isNavOpen ? 'navs-open' : ''}>
-    <Link to="/"><div className="logo">Trek Nepal</div></Link>
+    <Link to="/"><div className="logo">decor Nepal</div></Link>
     <div className="navs-items" style={{ marginRight: "100px" }}>
       <a href="/dashboard/add">Add</a> <a href="/dashboard/view">View</a> <a href="/dashboard/users">User</a> <a href="/dashboard/orders">Order</a> 
       <a href="/login" onClick={handleLogout}>Logout</a>

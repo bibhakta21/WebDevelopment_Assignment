@@ -1,11 +1,10 @@
 
 // export default Navigation;
 import React, { useState } from 'react';
-import { FiShoppingCart, FiUser } from 'react-icons/fi';
+import { FiShoppingCart, FiUser, FiLogOut} from 'react-icons/fi';
 import { useAuthContext } from "../context/useAuthContext";
 import { useLogout } from "../context/useLogout";
 import { Link } from 'react-router-dom';
-import "../css/navnew.css";
 
 import { FiMenu } from 'react-icons/fi';
 
@@ -25,91 +24,80 @@ const Navigation = () => {
   };
 
   return (
- <>
-    <nav className="fixed top-0 left-0 right-0 z-10  flex items-center shadow-lg bg-[#4460e6] p-3 flex-wrap">
-      <a href="#" className="p-2 mr-4 inline-flex items-center">
-        <span className="text-xl text-white font-bold  tracking-wide">
+    <>
+    <nav className="fixed top-0 left-0 right-0 z-10  flex items-center shadow-lg bg-[#0766AD] p-3 flex-wrap">
+      {/* Logo */}
+      <a href="/" className="p-2 mr-4 inline-flex items-center">
+        <span className="text-xl text-white font-bold tracking-wide">
           decorNepal
         </span>
       </a>
+      {/* Mobile Menu Button */}
       <button
         className="text-white text-bold inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
         onClick={handleNavToggle}
       >
-        <i className="material-icons"><FiMenu/></i>
+        <FiMenu />
       </button>
+      {/* Navigation Links */}
       <div
         className={`${
           isNavOpen ? 'block' : 'hidden'
         } top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto`}
         id="navigation"
-      > 
-      
-        <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto justify-center">
-          <div className='' style={{paddingRight:"300px"}}>
-          {user && user.roles === "admin" ? (
-            <Link to="/dashboard"
-              
-              className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center  hover:text-white"
-            >
-              <span className='text-white'>Dashboard</span>
+      >
+        {/* Links for larger screens */}
+        <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start gap-6  flex flex-col lg:h-auto justify-center">
+          {/* Dashboard link for admin */}
+          {user && user.roles === "admin" && (
+            <Link to="/dashboard" className="nav-link text-white">
+              Dashboard
             </Link>
-          ) : null}
-        
-            <Link to="" className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center  hover:text-white">
-              <span className='text-white'>Home</span>
-            </Link>
-          
-           <Link to="/products"
-            className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center  hover:text-white"
-          >
-            <span className='text-white'>Products</span>
+          )}
+          {/* Other links */}
+          <Link to="/" className="nav-link text-white">
+            Home
           </Link>
-
-          <Link to="/sofa"
-            className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center  hover:text-white"
-          >
-            <span className='text-white'>Sofa</span>
+          <Link to="/products" className="nav-link text-white">
+            Products
           </Link>
-          <Link to="/table"
-            className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center  hover:text-white"
-          >
-            <span className='text-white'>Decor</span>
+          <Link to="/sofa" className="nav-link text-white">
+            Sofa
           </Link>
-          </div>
-
-         
+          <Link to="/table" className="nav-link text-white">
+            Decor
+          </Link>
+        </div>
+        {/* Login/Logout and User Profile links */}
+        <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start gap-3 flex flex-col lg:h-auto justify-center">
           {user ? (
             <button
-              onClick={handleLogout}
-              className="lg:inline-flex lg:w-auto w-full  py-2 rounded text-gray-400 items-center justify-center"
-            >
-              <span className='login-btn text-white'>Logout</span>
-            </button>
+            onClick={handleLogout}
+            className="nav-link text-white"
+            title="Logout" // This text will be displayed on hover
+          >
+            <FiLogOut className="text-white h-6 w-6 ml-4 cursor-pointer" />
+          </button>
           ) : (
-            <Link to="/login"
-              className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center"
-            >
-              <span className='login-btn text-white'>Register/Login</span>
+            <Link to="/login" className="nav-link text-white border-2 p-[4px] rounded-lg hover-bg-grey-300">
+              Register/Login
             </Link>
           )}
           {user && (
-            <div className="group">
-           <Link to="/user-profile">
-            <button className="flex items-center justify-center font-bold gap-1 text-white">
-              <FiUser className="text-white h-6 w-6 ml-4 cursor-pointer" />
-            </button>
-        </Link>
-        </div>
+            <Link to="/user-profile" className="nav-link">
+              <FiUser   title="view profile" className="text-white h-6 w-6 ml-4 cursor-pointer" />
+            </Link>
           )}
           {user && (
-           <Link to="/userorder"><FiShoppingCart className="text-white h-6 w-6 ml-4 cursor-pointer" /></Link>
+            <Link to="/userorder" className="nav-link">
+              <FiShoppingCart   title="view cart"  className="text-white h-6 w-6 ml-4 cursor-pointer" />
+            </Link>
           )}
         </div>
       </div>
     </nav>
-    </>
-  );
+  </>
+);
 };
 
 export default Navigation;

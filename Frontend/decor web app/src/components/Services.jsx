@@ -36,7 +36,7 @@ const ServiceData = [
 const Services = () => {
   return (
     <div>
-      <div className="container my-4 md:my-20" style={{height:"100px",paddingLeft:"100px",}}>
+      <div className="container my-4 sm:mb-20 md:my-20" style={{height:"100px",paddingLeft:"100px",}}>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 gap-y-8 pt-4" >
           {ServiceData.map((data) => (
             <div className="flex flex-col items-start sm:flex-row gap-4">
