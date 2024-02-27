@@ -27,11 +27,11 @@ const Navigation = () => {
     <>
     <nav className="fixed top-0 left-0 right-0 z-10  flex items-center shadow-lg bg-[#0766AD] p-3 flex-wrap">
       {/* Logo */}
-      <a href="/" className="p-2 mr-4 inline-flex items-center">
+      <Link to="/" className="p-2 mr-4 inline-flex items-center">
         <span className="text-xl text-white font-bold tracking-wide">
           decorNepal
         </span>
-      </a>
+      </Link>
       {/* Mobile Menu Button */}
       <button
         className="text-white text-bold inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
@@ -64,8 +64,8 @@ const Navigation = () => {
           <Link to="/sofa" className="nav-link text-white">
             Sofa
           </Link>
-          <Link to="/table" className="nav-link text-white">
-            Decor
+          <Link to="/contact" className="nav-link text-white">
+            Contact
           </Link>
         </div>
         {/* Login/Logout and User Profile links */}

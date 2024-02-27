@@ -12,7 +12,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import Sofa from "./Pages/Sofa";
 import Chair from "./Pages/Chair";
 import Table from "./Pages/Table";
-
+import Contact from "./Pages/Contact";
 import Userprofile from "./Pages/Profile";
 import Orderdetail from "./components/Orderdetail";
 import Orderdetailuser from "./Pages/Orderdetailuser";
@@ -61,8 +61,10 @@ function App() {
         <Route path="/chair" element={<Chair />} />
         <Route path="/table" element={<Table />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
+        {user && (
         <Route path="/user-profile" element={<Userprofile />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        )}
+        <Route path="/contact" element={<Contact />} /> 
         <Route path="/userorder" element={<Userorder />} />
         <Route path="/orderdetailuser" element={<Orderdetailuser />} />
 
