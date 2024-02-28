@@ -119,7 +119,7 @@ const UserOrder = () => {
               <div key={cartItem.cartId}>
                 <div className="mb-6 rounded-lg bg-white p-6 shadow-md">
                   <div className="text-center md:text-left">
-                    <Link to=""><h2 className="text-lg font-bold text-gray-900">{cartItem.title}</h2></Link>
+                    <Link to={`/products/${cartItem.productId}`}><h2 className="text-lg font-bold text-gray-900">{cartItem.title}</h2></Link>
                     <img
                       className='w-[100px] h-[100px]'
                       src={`data:image/png;base64, ${cartItem.productImage}`}

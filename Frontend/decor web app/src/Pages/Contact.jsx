@@ -49,9 +49,11 @@ const Contact = () => {
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Phone number
                 </dt>
+                <a href="tel:9813056161" className="text-blue-500">
                 <dd className="mt-2 text-base text-gray-500">
                   9813056161
                 </dd>
+                </a>
               </div>
             </div>
 
@@ -66,9 +68,10 @@ const Contact = () => {
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   Email
                 </dt>
-                <dd className="mt-2 text-base text-gray-500">
+                <a href="mailto:decorNepal@gmail.com"><dd className="mt-2 text-base text-gray-500">
                   decorNepal@gmail.com
                 </dd>
+                </a>
               </div>
             </div>
 

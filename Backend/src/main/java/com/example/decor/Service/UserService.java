@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
 //yeta samma
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 
@@ -38,7 +39,7 @@ import java.util.Optional;
 
 
 @Service
-public class UserService {
+public class UserService{
 
 
 
@@ -56,6 +57,20 @@ public class UserService {
 //        this.javaMailSender = javaMailSender;
     }
 
+    public void createDefaultAdmin() {
+        // Check if an admin user already exists
+        if (!userRepository.existsByRoles(Users.Roles.admin)) {
+            // Create the default admin user
+            Users adminUser = new Users();
+            adminUser.setUsername("admin");
+            adminUser.setEmail("admin@gmail.com");
+            adminUser.setSecurityCode("#admin9813056161#");
+            adminUser.setPassword("adminPassword"); // You should use a secure password hashing method in a real-world scenario
+            adminUser.setRoles(Users.Roles.admin);
+
+            userRepository.save(adminUser);
+        }
+    }
 
 
 
