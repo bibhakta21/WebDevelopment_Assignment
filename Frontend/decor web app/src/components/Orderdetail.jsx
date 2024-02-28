@@ -25,8 +25,19 @@ const Orderdetail = () => {
       const filteredOrders = res.data.filter(order =>
         order.username.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      filteredOrders.sort((a, b) => a.orderId - b.orderId);
-      setOrders(filteredOrders);
+
+      const ordersWithImages = await Promise.all(filteredOrders.map(async (order) => {
+        const productResponse = await axios.get(`http://localhost:8080/api/v2/products/${order.productId}`);
+        const product = productResponse.data;
+
+        return {
+          ...order,
+          productImage: product.base64Image,
+        };
+      }));
+
+      ordersWithImages.sort((a, b) => a.orderId - b.orderId);
+      setOrders(ordersWithImages);
     } catch (error) {
       console.error("Error fetching orders:", error);
     }
@@ -53,7 +64,6 @@ const Orderdetail = () => {
       console.error("Error deleting order:", error);
     }
   };
-
 
   return (
     <>
@@ -85,7 +95,18 @@ const Orderdetail = () => {
                 <tr key={index}>
                   <td className="p-2">{order.username}</td>
                   <td className="p-2">{order.contactNumber}</td>
-                  <td className="p-2">{order.productTitle}</td>
+                  <td className="p-2">
+                    <div className="flex items-center">
+                      {order.productImage && (
+                        <img
+                          src={`data:image/png;base64, ${order.productImage}`}
+                          alt={`product-${order.productId}`}
+                          className="w-8 h-8 mr-2 rounded-full"
+                        />
+                      )}
+                      {order.productTitle}
+                    </div>
+                  </td>
                   <td className="p-2 text-center">{order.quantity}</td>
                   <td className="p-2 text-center">{order.totalPrice}</td>
                   <td className="p-2">{order.status ? "Completed" : "Pending"}</td>

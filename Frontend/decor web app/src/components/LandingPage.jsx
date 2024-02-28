@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   const { products, fetchProducts } = useProductContext();
   const [divanSofaImage, setDivanSofaImage] = useState(null);
+  
+
 
   useEffect(() => {
     // Fetch product when the component mounts
@@ -65,16 +67,16 @@ const LandingPage = () => {
              This is made from most expensive and durable wood in nature, Nothng can be more confortable.
             </p>
             <div data-aos="fade-up" data-aos-offset="0">
-            
-            <Link to={`/products/${products.productId}`}>
-                <button
-                  style={{ color:"#4460e6" }}
-                  className="bg-white py-2 px-4 rounded-full"
-                >
-                  Find More
-                </button>
-              </Link>
-            </div>
+            <Link to={`/products/${encodeURIComponent(products.find((product) => product.title === "Divan Sofa")?.productId || "")}`}>
+              <button
+                style={{ color: "#4460e6" }}
+                className="bg-white py-2 px-4 rounded-full"
+              >
+                Find More
+              </button>
+            </Link>
+          </div>
+
             
           </div>
         

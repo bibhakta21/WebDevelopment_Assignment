@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useProductContext } from "../context/ProductContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -65,12 +66,14 @@ const Banner = () => {
              This is made from most expensive and durable wood in nature, Nothng can be more confortable.
             </p>
             <div data-aos="fade-up" data-aos-offset="0">
+              <Link to="/products">
               <button
                 style={{ color:"#f42c37" }}
                 className="bg-white py-2 px-4 rounded-full"
               >
                 Shop Now
               </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -4,26 +4,32 @@ import { useProductContext } from "../context/ProductContext";
 
 const SpecialProduct = () => {
   const { products, fetchProducts } = useProductContext();
-  const [randomProductImages, setRandomProductImages] = useState([]);
-  const [isImagesFetched, setIsImagesFetched] = useState(false);
+  const [productImages, setProductImages] = useState([]);
 
   useEffect(() => {
-    // Fetch  when the component mounts
-    fetchProducts();
+    const fetchData = async () => {
+      try {
+        // Fetch products when the component mounts
+        await fetchProducts();
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData();
   }, [fetchProducts]);
 
   useEffect(() => {
-    // Fetch four random  images if not fetched yet
-    if (!isImagesFetched && products.length > 3) {
-      const randomIndices = Array.from({ length: 4 }, () =>
-        Math.floor(Math.random() * products.length)
-      );
-      const randomProducts = randomIndices.map((index) => products[index]);
-      const images = randomProducts.map((product) => product.base64Image);
-      setRandomProductImages(images);
-      setIsImagesFetched(true);
-    }
-  }, [products, isImagesFetched]);
+    // Filter products based on specific product names
+    const filteredProducts = products.filter((product) =>
+      ["sofa", "table", "chair", "console table"].includes(product.title.toLowerCase())
+    );
+
+    // Map filtered products to images
+    const images = filteredProducts.map((product) => product.base64Image);
+
+    setProductImages(images);
+  }, [products]);
 
   return (
     <section className="product">
@@ -32,17 +38,10 @@ const SpecialProduct = () => {
           <h3 className="section__title" style={{ fontFamily: "prata" }}>
             SPECIAL PRODUCT
           </h3>
-          <div className="product__nav">
-            <span>
-              <i className="ri-arrow-left-s-line"></i>
-            </span>
-            <span>
-              <i className="ri-arrow-right-s-line"></i>
-            </span>
-          </div>
+          {/* Add navigation or other controls as needed */}
         </div>
         <div className="product__grid">
-          {randomProductImages.map((image, index) => (
+          {productImages.map((image, index) => (
             <div key={index} className="product__image">
               {image && (
                 <img

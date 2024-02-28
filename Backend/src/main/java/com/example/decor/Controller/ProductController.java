@@ -73,7 +73,7 @@ public class ProductController {
 
 
     private String saveImage(MultipartFile image) throws IOException {
-        String uploadDirectory = "C:/Users/Bibhakta lamsal/Desktop/Web final project/Backend/src/main/java/com/example/decor/Productimg";
+        String uploadDirectory = "C:/Users/Bibhakta lamsal/Desktop/Web_Development_Final_Project/Backend/src/main/java/com/example/decor/Productimg";
 
         // Append timestamp to the original filename
         String fileName = System.currentTimeMillis() + "_" + StringUtils.cleanPath(Objects.requireNonNull(image.getOriginalFilename()));
