@@ -65,14 +65,12 @@ public class UserService{
             adminUser.setUsername("admin");
             adminUser.setEmail("admin@gmail.com");
             adminUser.setSecurityCode("#admin9813056161#");
-            adminUser.setPassword("adminPassword"); // You should use a secure password hashing method in a real-world scenario
+            adminUser.setPassword("admin12345"); // You should use a secure password hashing method in a real-world scenario
             adminUser.setRoles(Users.Roles.admin);
 
             userRepository.save(adminUser);
         }
     }
-
-
 
     // register service
     public Users createUser(Users users) {
